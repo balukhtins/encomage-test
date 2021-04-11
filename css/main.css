@@ -1,0 +1,149 @@
+#masthead{
+    padding-top: 2rem;
+}
+
+.search{
+    padding-right: 3rem;
+}
+
+th[name="id"] span,
+th[name="first_name"] span,
+th[name="last_name"] span,
+th[name="email"] span,
+th[name="create_date"] span,
+th[name="update_date"] span{
+    cursor: pointer;
+}
+
+/*loader*/
+.loaders {
+    position: fixed;
+    /* координаты положения */
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    /* фоновый цвет элемента */
+    background: #e0e0e0;
+    opacity: 0.5;
+    /* размещаем блок над всеми элементами на странице (это значение должно быть больше, чем у любого другого позиционированного элемента на странице) */
+    z-index: 1001;
+    /*position: relative;*/
+    width: 100%;
+    height: 46vw;
+    /*margin: 0 3vw 3vw 0;*/
+    margin: auto;
+    /*background: #FFF;*/
+    /*transition: background 0.35s;*/
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: column wrap;
+    -ms-flex-flow: column wrap;
+    flex-flow: column wrap;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+.loaders-none{
+    display:none;
+}
+
+.loaders::before {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    display: block;
+    width: 46vw;
+    height: 43vw;
+    content: "";
+    /*box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);*/
+}
+
+.loaders .loader {
+    position: relative;
+    margin: 0 auto;
+}
+
+.loaders .pl-wave .loader {
+    width: 50px;
+    height: 50px;
+}
+
+.loaders .pl-wave .loader::before {
+    top: 50%;
+    left: 0;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    -webkit-animation: wave 0.9s linear infinite;
+    animation: wave 0.9s linear infinite;
+}
+
+.loaders .pl-wave .loader span, .loaders .pl-wave .loader::before, .loaders .pl-wave .loader::after {
+    position: absolute;
+    display: block;
+    width: 6px;
+    height: 100%;
+    background: #248ACC;
+}
+
+.loaders .pl-wave .loader::before, .loaders .pl-wave .loader::after {
+    content: "";
+}
+
+.loaders .pl-wave .loader::after {
+    top: 50%;
+    right: 0;
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    -webkit-animation: wave 0.9s linear infinite 0.6s;
+    animation: wave 0.9s linear infinite 0.6s;
+}
+
+.loaders .pl-wave .loader span {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-animation: wave 0.9s linear infinite 0.3s;
+    animation: wave 0.9s linear infinite 0.3s;
+}
+
+@-webkit-keyframes wave {
+    0% {
+        height: 100%
+    }
+    40% {
+        height: 10%;
+    }
+    80% {
+        height: 100%;
+    }
+    100% {
+        height: 100%;
+    }
+}
+
+@keyframes wave {
+    0% {
+        height: 100%
+    }
+    40% {
+        height: 10%;
+    }
+    80% {
+        height: 100%;
+    }
+    100% {
+        height: 100%;
+    }
+}
+/*end loaders*/
