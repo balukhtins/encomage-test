@@ -14,7 +14,6 @@ if ($arr_url[0] == 'user_add'){
 
 if ($arr_url[0] == 'index'){
     echo '<script src="js/user-select.js"></script>';
-    echo '<script src="js/user-search.js"></script>';
 }
 ?>
 </body>

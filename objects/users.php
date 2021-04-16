@@ -6,12 +6,12 @@ class Users {
     private $table_name = "users";
 
     // свойства объекта
-    public $id;
-    public $first_name;
-    public $last_name;
-    public $email;
-    public $create_date;
-    public $update_date;
+    public $id = "";
+    public $first_name = "";
+    public $last_name = "";
+    public $email = "";
+    public $create_date = "";
+    public $update_date = "";
 
     // конструктор для соединения с базой данных
     public function __construct($db){
@@ -126,19 +126,45 @@ function select($keywords){
     // разложим массив на переменные
     if (is_array($keywords)) {
         extract($keywords);
+
         $field = "{$field}";
         $desc = "{$desc}";
+
+        //$id = (int) $id;
+        //$first_name = "{$first_name}";
+        //$last_name = "{$last_name}";
+        //$email = "{$email}";
+        //$create_date = "{$create_date}%";
+        //$update_date = "{$update_date}%";
+        //var_dump($id);
     }
     else die(json_encode(array("message" => "Users не найдены."), JSON_UNESCAPED_UNICODE));
     // выборка по всем записям
 
+    $where = '';
+
+    if ($this->id || $this->first_name || $this->last_name || $this->email || $this->update_date || $this->create_date){
+      $where = "WHERE
+               (id LIKE ? OR first_name LIKE ? OR last_name LIKE ? OR email LIKE ? OR update_date LIKE ? OR create_date LIKE ?)";
+    }
+
     $query = "SELECT 
          id, first_name, last_name, email, create_date, update_date
-         FROM " .$this->table_name. " 
-               ORDER BY " . $field . " " . $desc;
+         FROM " .$this->table_name. "
+            " .$where. "
+                    ORDER BY " . $field . " " . $desc;
 
+    //id LIKE ? OR first_name LIKE ? OR last_name LIKE ? OR email LIKE ? OR update_date LIKE ? OR create_date LIKE ?
     // подготовка запроса
     $stmt = $this->conn->prepare($query);
+
+    // привязка
+    $stmt->bindParam(1, $this->id);
+    $stmt->bindParam(2, $this->first_name);
+    $stmt->bindParam(3, $this->last_name);
+    $stmt->bindParam(4, $this->email);
+    $stmt->bindParam(5, $this->update_date);
+    $stmt->bindParam(6, $this->create_date);
 
         // выполняем запрос
         $stmt->execute();

@@ -5,7 +5,7 @@
 <header id="masthead" class="container-fluid">
     <div class="row header-row justify-content-sm-between">
         <div class="col">
-            <h1>Users</h1>
+            <a href="index.php"><h1>Users</h1></a>
         </div>
         <div class="col-md-2 col-4 btn-header">
             <div class="row justify-content-center justify-content-sm-end">
