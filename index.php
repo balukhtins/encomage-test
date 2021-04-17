@@ -32,12 +32,12 @@
     <table class="table table-hover">
         <thead>
         <tr class="table-warning">
-            <th scope="col" desc="DESC" icon="0" name="id"><span>#</span></th>
-            <th scope="col" desc="DESC" icon="0" name="first_name"><span>First Name</span></th>
-            <th scope="col" desc="DESC" icon="0" name="last_name"><span>Last Name</span></th>
-            <th scope="col" desc="DESC" icon="0" name="email"><span>Email</span></th>
-            <th scope="col" desc="DESC" icon="0" name="create_date"><span>Create Date</span></th>
-            <th scope="col" desc="DESC" icon="0" name="update_date"><span>Update Date</span></th>
+            <th scope="col" desc="DESC" name="id"><span>#</span><i class="bi" icon="0"></i></th>
+            <th scope="col" desc="DESC" name="first_name"><span>First Name</span></i><i class="bi"  icon="0"></th>
+            <th scope="col" desc="DESC" name="last_name"><span>Last Name</span></i><i class="bi" icon="0"></th>
+            <th scope="col" desc="DESC" name="email"><span>Email</span></i><i class="bi" icon="0"></th>
+            <th scope="col" desc="DESC" name="create_date"><span>Create Date</span></i><i class="bi" icon="0"></th>
+            <th scope="col" desc="DESC" name="update_date"><span>Update Date</span></i><i class="bi" icon="0"></th>
             <th scope="col">Action</th>
         </tr>
         <tr class="table-secondary">

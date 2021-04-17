@@ -90,8 +90,30 @@ jQuery(document).ready(function($) {
 
         let name = $(this).attr('name');
         let desc = $(this).attr('desc');
-
-        let icon = $(this).attr('icon');
+        $(this).siblings().attr('desc', 'DESC');
+        let icons = $(this).siblings().children('i');
+        icons.attr('icon', 0);
+        icons.removeClass('bi-arrow-up');
+        icons.removeClass('bi-arrow-down');
+        let icon = $(this).children('i');
+        console.log(icon.attr('icon'));
+        switch (icon.attr('icon')) {
+            case "0" :
+                icon.attr('icon', 1);
+                icon.addClass('bi-arrow-up');
+            break;
+            case "1" :
+                icon.removeClass('bi-arrow-up');
+                icon.attr('icon', -1);
+                icon.addClass('bi-arrow-down');
+                break;
+            case "-1" :
+                icon.removeClass('bi-arrow-down');
+                icon.attr('icon', 1);
+                icon.addClass('bi-arrow-up');
+                break;
+        }
+        // let icon = $(this).attr('icon');
 
         if (desc == 'DESC'){
             $(this).attr('desc','ASC');
@@ -123,6 +145,11 @@ jQuery(document).ready(function($) {
         $('input[name="email"]').val('');
         $('input[name="create_date"]').val('');
         $('input[name="update_date"]').val('');
+        $('.table-warning th').attr('desc', 'DESC');;
+        let icon = $('.table-warning th i');
+        icon.attr('icon', 0);
+        icon.removeClass('bi-arrow-up');
+        icon.removeClass('bi-arrow-down');
         let data = {
             'field':'id',
             'desc':'ASC',
